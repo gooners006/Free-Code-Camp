@@ -21,20 +21,13 @@ sumAll([1, 10]);
 * Diff Two Arrays
 ```javascript
 function diffArray(arr1, arr2) {
-    var newArr = [];
-    // Same, same; but different.
 
-    newArr =
-        //get the unique elements in the arr1
-        arr1.filter(w => {
+        return arr1.filter(w => {
             return !arr2.includes(w);
         })
-        //get the unique elements in the arr2
         .concat(arr2.filter(w => {
             return !arr1.includes(w);
         }));
-
-    return newArr;
 }
 
 diffArray([1, "calf", 3, "piglet"], [1, "calf", 3, 4]);
