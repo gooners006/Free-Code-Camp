@@ -1,3 +1,4 @@
+* Sum All Numbers in a Range
 ```javascript
 function sumAll(arr) {
     var sum = 0;
