@@ -46,7 +46,8 @@ function convertToRoman(num) {
   var strRoman='';
   //for loop iterate through the number array
   for(i=0;i<number.length;i++){
-    // if the input number is equal or larger than the number at index then subtract the number by the value at the index, at the same time return the roman counterpart to the string
+    // if the input number is equal or larger than the number at index then subtract the number by the value at the index, 
+    //at the same time return the roman counterpart to the string
     while(number[i]<=num){
       strRoman+=roman[i];
       num-=number[i];
@@ -57,4 +58,29 @@ function convertToRoman(num) {
 
 convertToRoman(624);
 
+```
+* 
+```javascript
+function whatIsInAName(collection, source) {
+    // What's in a name?
+    var arr = [];
+    // Only change code below this line
+    arr = collection.filter(e => {
+        //use for ..in to iterate through the properties of an object
+        for (var i in source) {
+            //if found an object in the collection array that doesn't contain the property or has a different value then return false 
+            //so that the filter doesn't put that object in the array
+            if (source[i] != e[i]) {
+                return false;
+            }
+        }
+        //if the object e has all the property of the source object then return that object e
+        return true;
+    });
+
+    // Only change code above this line
+    return arr;
+}
+
+whatIsInAName([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }], { "a": 1, "b": 2 });
 ```
