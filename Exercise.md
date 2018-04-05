@@ -1,3 +1,4 @@
+## Ctrl F để search tên bài 
 * Sum All Numbers in a Range
 ```javascript
 function sumAll(arr) {
