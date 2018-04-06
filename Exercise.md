@@ -84,3 +84,58 @@ function whatIsInAName(collection, source) {
 
 whatIsInAName([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }], { "a": 1, "b": 2 });
 ```
+* Search and Replace
+```javascript
+
+function myReplace(str, before, after) {
+  //check if the case of before and after is different, is they are then convert them into the same case
+  if((before.charAt(0)==before.charAt(0).toUpperCase())&&(after.charAt(0)==after.charAt(0).toLowerCase())){
+    after = after.charAt(0).toUpperCase() + after.slice(1);
+  }
+  if((before.charAt(0)==before.charAt(0).toLowerCase())&&(after.charAt(0)==after.charAt(0).toUpperCase())){
+    after = after.charAt(0).toLowerCase() + after.slice(1);
+  }
+  //replace the 2
+  var newStr = str.replace(before,after);
+  return newStr;
+}
+
+myReplace("He is sleeping on the couch", "sleeping", "Sitting");
+
+```
+* Pig Latin
+```javascript
+function translatePigLatin(str) {
+    var cutStr = [];
+    //split the str into an array
+    var arrStr = str.split("");
+    //a function to check if the value is a vowel
+    function check(value) {
+        if (value == 'a' || value == 'e' || value == 'i' || value == 'o' || value == 'u') {
+            return true;
+        }
+    }
+    //if the 1st letter is a vowel then add way
+    if (check(str[0])) {
+        return str + 'way';
+    }
+    //find the 1st vowel in the string
+    for (i = 0; i < arrStr.length; i++) {
+        if (check(arrStr[i])) {
+            //cut out every consonants before the 1st vowel
+            cutStr = arrStr.splice(0, i);
+            //join the cut consonants into an array
+            cutStr = cutStr.join("");
+            //move the cut consonants to the end of the array of the word
+            arrStr.push(cutStr);
+            break;
+        }
+
+    }
+
+    //return the string
+    return arrStr.join("") + "ay";
+}
+
+translatePigLatin("paragraphs");
+```
