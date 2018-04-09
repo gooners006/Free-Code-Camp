@@ -139,3 +139,70 @@ function translatePigLatin(str) {
 
 translatePigLatin("paragraphs");
 ```
+* DNA Pairing
+```javascript
+//My way
+function pairElement(str) {
+    //create an object to contain the responding value 
+    const o = { A: 'T', T: 'A', C: 'G', G: 'C' };
+    //return the new string with every 2 value paired up
+    let newStr = '';
+    for (let i of str) {
+        i = i + o[i];
+        newStr += i;
+    }
+    //create a new array from the newa string
+    const newArr = Array.from(newStr);
+    //create the result array
+    let result = [];
+    for (i = 0; i < newArr.length; i += 2) {
+        //put every pair into a string
+        let pair = newArr[i] + newArr[i + 1];
+        //convert that string into an array and push it into the result array
+        result.push(Array.from(pair));
+    }
+    return result;
+}
+
+//Hai's way
+function pairElement(str){
+  const arr=str.split('');
+  let result=[];
+  for(e of arr){
+    switch(e){
+      case "A":
+        result.push([e,'T']);
+        break;
+        case "T":
+        result.push([e,'A']);
+        break;
+        case "C":
+        result.push([e,'G']);
+        break;
+        case "G":
+        result.push([e,'C']);
+        break;
+    }
+  }
+  return result;
+}
+
+pairElement("ATCGA");
+```
+
+* Missing Letters
+```javascript
+
+function fearNotLetter(str) {
+  let arr=[];
+  for(let i=0;i<str.length-1;i++){
+    if((str.charCodeAt(i)+1)!=str.charCodeAt(i+1)){
+      return String.fromCharCode(str.charCodeAt(i)+1);
+    }
+  } return undefined;
+  
+}
+
+fearNotLetter("abd");
+
+```
